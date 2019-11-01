@@ -2,8 +2,8 @@
   <div class="card-body mx-auto" style="max-width: 400px;">
     <h4 class="card-title mt-3 text-center">Create Account</h4>
     <div class="form-group input-group">
-      <el-input placeholder="Username" v-model="username" clearable>
-        <i slot="prefix" class="el-input__icon el-icon-user-solid"></i>
+      <el-input placeholder="Email" v-model="email" clearable>
+        <i slot="prefix" class="el-input__icon el-icon-location"></i>
       </el-input>
     </div>
     <div class="form-group input-group">
@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      username: "",
+      email: "",
       address: "",
       password: ""
     };
@@ -31,9 +31,8 @@ export default {
   methods: {
     async register() {
       try {
-        debugger
-        await this.$axios.post("register", {
-          username: this.username,
+        let user = await this.$axios.post("/user/register", {
+          email: this.email,
           address: this.address,
           password: this.password
         });

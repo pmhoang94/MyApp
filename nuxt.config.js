@@ -25,24 +25,35 @@ module.exports = {
     ]
   },
   axios: {
-    baseURL: "http://127.0.0.1:3333/api"
+    baseURL: "http://localhost:1337/api/app"
   },
 
   auth: {
     strategies: {
       local: {
         endpoints: {
-          login: { url: "login", method: "post", propertyName: "data.token" },
-          user: { url: "me", method: "get", propertyName: "data" },
+          login: {
+            url: "/user/login",
+            method: "post",
+            propertyName: "data.token"
+          },
+          user: { url: "/user/me", method: "get", propertyName: "data" },
           logout: false
-        }
+        },
+        tokenType: false
       }
     }
   },
   script: [
-    { src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js' },
-    { src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js' },
-    { src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js' }
+    {
+      src:
+        "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    },
+    { src: "https://code.jquery.com/jquery-3.3.1.slim.min.js" },
+    {
+      src:
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    }
   ],
   /*
    ** Customize the progress-bar color
@@ -51,7 +62,17 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ["element-ui/lib/theme-chalk/index.css", "~/assets/main.css"],
+  css: [
+    "element-ui/lib/theme-chalk/index.css",
+    "~/assets/main.css",
+    "~/assets/css/icons/icomoon/styles.css",
+    "~/assets/css/bootstrap.css",
+    "~/assets/css/core.css",
+    "~/assets/css/components.css",
+    "~/assets/css/colors.css",
+    "~/assets/css/custom.css",
+    "~/assets/css/style.css"
+  ],
   /*
    ** Plugins to load before mounting the App
    */
